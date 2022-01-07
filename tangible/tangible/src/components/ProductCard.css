@@ -1,0 +1,43 @@
+.productCard {
+    color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 300px;
+    height: 400px;
+    margin-right: 30px;
+    cursor: pointer;
+    
+}
+
+.productCard:hover {
+    filter: brightness(110%);
+}
+
+.imageContainer {
+    position: relative;
+}
+
+.imageContainer > img {
+    border-radius: 25px; 
+    width: 100%;
+}
+
+.price {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-weight: 600;
+    background: #1a1c1e;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+
+
+.productName {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: 900;
+}
+

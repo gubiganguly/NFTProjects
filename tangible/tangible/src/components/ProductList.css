@@ -1,0 +1,11 @@
+.productList {
+    overflow: scroll;
+    margin-top: 25px;
+    padding-bottom: 25px;
+    justify-content: center;
+    display: flex;
+    padding-left: 300px;
+}
+
+
+

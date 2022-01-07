@@ -1,0 +1,70 @@
+.infoContainer {
+    cursor: pointer;
+    overflow: scroll;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    justify-content: center;
+    display: flex;
+}
+
+.yourNfts {
+    cursor: pointer;
+    overflow: scroll;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    justify-content: center;
+    display: flex;
+}
+
+.yourNftList {
+    display: flex;
+}
+
+.ownerContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.owner {
+    display: flex;
+    margin: 10px 0;
+    height: 50px;
+}
+
+.owner  > div {
+    margin: 0 5px;
+}
+
+.ownerImageContainer {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border-radius: 50px;
+    overflow: hidden;
+    object-fit: contain;
+}
+
+.ownerImageContainer > img {
+    height: 100%;
+    width: 100%;
+
+}
+
+.ownerAddress {
+    color: #a1a5b0;
+}
+
+.ownerDetails {
+    display: flex;
+    width: 100%;
+}
+
+.ownerNameAndHandle {
+    flex: 1;
+    margin: auto;
+}
+
+
+

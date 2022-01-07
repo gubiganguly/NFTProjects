@@ -1,0 +1,26 @@
+.marketPlace {
+    color: white;
+}
+
+.marketPlace:hover {
+    filter: brightness(100%);
+}
+
+.apparel {
+    font-weight: 700;
+    font-size: 55px;
+    border-bottom: 1px solid white;
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.imgContainer {
+    width: 80px;
+    height: 80px;
+}
+
+.imgContainer > img {
+    border-radius: 25px; 
+    padding-left: 10px;
+    width: 100%;
+}
