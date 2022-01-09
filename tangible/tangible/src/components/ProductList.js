@@ -1,31 +1,16 @@
 import React from 'react'
 import ProductCard from './ProductCard'
 import './ProductList.css'
-import axios from 'axios';
-import{useState, useEffect} from 'react'; 
+import Products from '../printify-api/Products'
+ 
 
-const ProductList = ({ setSelectedProduct }) => {
+const ProductList = ({ selectedNft, setSelectedProduct }) => {
 
-    // get all products from printful store
-    const token = 'hOx4e0OEZvWQva3RCTUdcKQL7eCrJZeV8DfngDff'
-    useEffect(() => {
-      const getProducts = async () => {
-        const printfulProducts  = await axios.get(
-          "https://api.printful.com/store/products",
-          { 
-            headers: {"Authorization": `Bearer ${token}`}
-          }
-        )
-        localStorage.setItem('products', JSON.stringify(printfulProducts.data.result))
-      }
-      return getProducts()
-    }, [])
+    const shop_id = 3972751
 
+    let products = Products(shop_id)
 
-    let products = JSON.parse(localStorage.getItem('products'))
-
-    console.log(products)
-
+    //console.log(products)
 
     return (
         <div className="productList">
@@ -33,11 +18,9 @@ const ProductList = ({ setSelectedProduct }) => {
                 products.map(product => (
                     <div key={product.id}>
                         <ProductCard
-                            image={product.thumbnail_url}
-                            name={product.name}
-                            price={"$50"}
-                            id={product.id}
+                            product={product}
                             setSelectedProduct={setSelectedProduct}
+                            selectedNft={selectedNft}
                         />
                     </div>))
             }            

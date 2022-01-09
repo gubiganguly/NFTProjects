@@ -2,6 +2,8 @@ import React from 'react'
 import YourNft from './YourNft'
 import './YourNftList.css'
 import axios from 'axios'
+import QRCode from 'qrcode';
+
 
 
 const YourNfts = ({ setSelectedNft }) => {
@@ -37,18 +39,27 @@ const YourNfts = ({ setSelectedNft }) => {
         )
     }
 
-      
+    const nft = []
+    YourNfts.map((NFT) => {
+        nft.push({
+            "name": NFT.name,
+            "id": NFT.token_id,
+            "image": NFT.image_original_url,
+            "image_id": '',
+            "link_image": `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${NFT.permalink}`,
+            "link_image_id": ''
+        })
+    })
+
+
     return (
         <div className='YourInfo'>
             <div className='infoContainer'>
                 <div className='yourNftList'>
-                    {YourNfts.map(NFT => (
+                    {nft.map(NFT => (
                         <div key={NFT.id}>
                             <YourNft
-                                id={NFT.token_id}
-                                name={NFT.name}
-                                image={NFT.image_original_url}
-                                link={NFT.permalink}
+                                nft={NFT}
                                 setSelectedNft={setSelectedNft}
                             />
                         </div>

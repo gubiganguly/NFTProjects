@@ -8,7 +8,7 @@ import{useState, useEffect} from 'react';
 
 
 
-const Header = () => {
+const Header = ({ setAccount }) => {
 
         
 
