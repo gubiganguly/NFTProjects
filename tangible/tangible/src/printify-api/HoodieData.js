@@ -2,6 +2,7 @@
 const HoodieData = (NFT) => {
     
     const data = {
+        "title": NFT.name + ' Hoodie',
         "print_areas": [
             {
               "variant_ids": [74644, 74645, 74646, 74647, 74648],

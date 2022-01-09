@@ -7,8 +7,7 @@ const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzN2Q0YmQzMDM1ZmUx
  * @param shop_id 
  * @returns 
  */
-const Products = (shop_id) => {
-    const [products, setProducts] = useState([])
+const Products = (shop_id, products, setProducts) => {
 
     const printify = axios.create({
     baseURL: 'https://api.printify.com/v1/',

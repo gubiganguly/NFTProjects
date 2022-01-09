@@ -1,30 +1,20 @@
 import React from 'react'
 import './ProductCard.css'
-import ChangeProductImage from '../printify-api/ChangeProductImage';
-import TShirtData from '../printify-api/TShirtData';
-import HoodieData from '../printify-api/HoodieData';
-
+import { useHistory } from 'react-router'
 
 const ProductCard = ({product, setSelectedProduct, selectedNft}) => {
 
-    const shop_id = 3972751
-
-    //console.log(product)
- 
-    if(selectedNft.length === undefined) {
-        ChangeProductImage(shop_id, product.id, TShirtData(selectedNft))
-        ChangeProductImage(shop_id, product.id, HoodieData(selectedNft))
-    }
-
-
-    async function clickView() {
-        setSelectedProduct(product.id)
+    let history = useHistory();
+    
+    async function seeDetails() {
+        localStorage.setItem('selectedProduct', JSON.stringify(product))
+        history.push("/details");
     }
 
     return (
-        <div className='productCard' onClick={clickView}>
+        <div className='productCard' onClick={seeDetails}>
             <div className='imageContainer' style={{width: "300px", height: "300px"}}>
-                <img  src={product.images[0].src} alt='' /> 
+                <img  src={product.images[0].src+`?v=${Date.now()}`} alt='' /> 
                 <div className='price'>
                     {`$${(product.variants[0].price)/100}`}
                 </div>

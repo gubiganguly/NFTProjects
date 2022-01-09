@@ -4,11 +4,10 @@ import punkLogo from '../assets/header/cryptopunk-logo.png'
 import searchIcon from '../assets/header/search.png'
 import themeSwitchIcon from '../assets/header/theme-switch.png'
 import {Link} from 'react-router-dom'
-import{useState, useEffect} from 'react'; 
 
 
 
-const Header = ({ setAccount }) => {
+const Header = () => {
 
         
 
@@ -64,7 +63,7 @@ const Header = ({ setAccount }) => {
             </div>
 
             <button className='loginButton' onClick={loginButton}>
-                Get in
+                Connect
             </button>
 
         </div>

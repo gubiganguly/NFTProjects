@@ -2,13 +2,49 @@ import React from 'react'
 import YourNft from './YourNft'
 import './YourNftList.css'
 import axios from 'axios'
-import QRCode from 'qrcode';
+import{useState, useEffect} from 'react'; 
 
 
 
-const YourNfts = ({ setSelectedNft }) => {
+const YourNfts = ({ yourNfts, setYourNfts, setSelectedNft }) => {
 
+    const [ownerInfo, setOwnerInfo] = useState([])
     
+    
+
+    // get user nfts
+    useEffect(async () => {
+
+
+
+        const data = await axios.get(
+            `https://testnets-api.opensea.io/assets?owner=${localStorage.getItem('account')}&order_direction=asc`
+            )
+        const openSeaNfts = data.data.assets
+
+        // map openSea list to a custom NFT list
+        const customNftList = []
+        openSeaNfts.map((NFT) => {
+            customNftList.push({
+                "owner_address": NFT.owner.address,
+                "owner_image": NFT.owner.profile_img_url, 
+                "name": NFT.name,
+                "id": NFT.token_id,
+                "image": NFT.image_original_url,
+                "image_id": '',
+                "link": NFT.permalink,
+                "link_image": `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${NFT.permalink}`,
+                "link_image_id": ''
+            })
+        })
+        const addressAndImage = []
+        addressAndImage.push(customNftList[0].owner_address)
+        addressAndImage.push(customNftList[0].owner_image)
+        setOwnerInfo(addressAndImage)
+        setYourNfts(customNftList)
+    }, [localStorage.getItem('account')])
+
+
     // if account = 0;  return <Connect Wallet />
     if (localStorage.getItem('account') === 0) {
         return (
@@ -18,45 +54,21 @@ const YourNfts = ({ setSelectedNft }) => {
         )
     }
 
-    // get user nfts
-    function getUserNfts() {
-        axios.get(
-        `https://testnets-api.opensea.io/assets?owner=${localStorage.getItem('account')}&order_direction=asc`
-        ).then((response) => {
-            localStorage.setItem('yourNfts', JSON.stringify(response.data.assets))
-        })
-    }
-    getUserNfts()
-    let YourNfts = JSON.parse(localStorage.getItem('yourNfts'))
-    
-
     // if YourNfts.length  ==  0: return <BuyNfts />
-    if (YourNfts.length === 0) {
+    if (yourNfts.length === 0) {
         return (
-            <div className='buyNfs'> 
-                Buy NFTs
+            <div className="buyNfts">
+                Buy Nfts
             </div>
         )
     }
-
-    const nft = []
-    YourNfts.map((NFT) => {
-        nft.push({
-            "name": NFT.name,
-            "id": NFT.token_id,
-            "image": NFT.image_original_url,
-            "image_id": '',
-            "link_image": `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${NFT.permalink}`,
-            "link_image_id": ''
-        })
-    })
 
 
     return (
         <div className='YourInfo'>
             <div className='infoContainer'>
                 <div className='yourNftList'>
-                    {nft.map(NFT => (
+                    {yourNfts.map(NFT => (
                         <div key={NFT.id}>
                             <YourNft
                                 nft={NFT}
@@ -69,7 +81,7 @@ const YourNfts = ({ setSelectedNft }) => {
             <div className='ownerContainer'>
             <div className='owner'>
                 <div className='ownerImageContainer'>
-                    <img src={YourNfts[0].owner.profile_img_url} alt='' />
+                    <img src={ownerInfo[1]} alt='' />
                 </div>
                 <div className='ownerDetails'>
                     <div className='ownerNameAndHandle'>

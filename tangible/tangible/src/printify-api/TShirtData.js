@@ -1,7 +1,8 @@
 
 const TShirtData = (NFT) => {
-    
+
     const data = {
+        "title": NFT.name + ' T-Shirt',
         "print_areas": [
             {
               "variant_ids": [70647, 70648, 70649, 70650, 70651, 70652, 70653, 70654],

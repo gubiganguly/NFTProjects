@@ -1,0 +1,117 @@
+.details {
+    color: white;
+    display: flex;
+}
+
+.productImageContainer  {
+    padding-top: 60px;
+    width: 600px;
+    height: 600px;
+    overflow: auto;
+    border-radius: 10px;
+    display: flex;
+}
+
+.productImageContainer > img {
+    object-fit: contain;
+    width: 100%;
+}
+
+.optionsContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 30px;
+    padding-left: 100px;
+    margin: 1000x;
+}
+
+.sizeContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sizeContainer > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    padding: 10px;
+    border: 1px solid #66feea;
+    margin: 15px;
+    overflow: auto;
+}
+
+.sizeContainer > div:hover {
+    background-color: #66feea;
+    color: black;
+    cursor: pointer;
+}
+
+
+.box {
+    border: white;
+    display: flex;
+    font-size: 20px;
+}
+
+.changeColorContainer {
+    display: flex;
+}
+
+.colorInputBar {
+    background-color: #1c1c1e;
+    height: 50px;
+    width: 250px;
+    display: flex;
+    border-radius: 50px;
+    align-items: center;
+}
+
+
+.colorInput {
+    padding-left: 10px;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    outline: none;
+    color: #eee;
+    font-size: 16px;
+}
+
+.colorButton {
+    text-align: center;
+    width: 50px;
+    background: linear-gradient(to right, #59f9b7, #66feea);
+
+    border-radius: 100px;
+    color: black;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.colorButton {
+    filter: brightness(110%);
+}
+
+
+.addToCart {
+    text-align: center;
+    width: 100px;
+    background: linear-gradient(to right, #59f9b7, #66feea);
+    padding: 15px  40px;
+    border-radius: 15px;
+    color: black;
+    border: none;
+    text-decoration: none;
+    position: Absolute; right: 20px;
+    cursor: pointer;
+    
+}
+
+.addToCart:hover {
+    filter: brightness(110%);
+}
