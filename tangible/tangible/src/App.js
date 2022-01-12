@@ -10,6 +10,7 @@ import Uploads from './printify-api/Uploads';
 import DeleteUploads from './printify-api/DeleteUploads';
 import Products from './printify-api/Products';
 import Details from './components/Details';
+import Cart from './components/Cart';
 
 
 
@@ -22,15 +23,16 @@ function App() {
   
   const [products, setProducts] = useState([])
   const [selectedProduct, setSelectedProduct] = useState([])
+  const [cart, setCart] = useState([])
 
   //console.log(products)
 
-
+  //console.log(cart)
 
   return (
     <Router>
       <div className="app">
-        <Header />
+        <Header cart={cart}/>
         <div className='content'>
           <Switch>
             <Route exact path="/">
@@ -38,7 +40,10 @@ function App() {
               <Marketplace setProducts={setProducts} products={products} setSelectedProduct={setSelectedProduct} selectedNft={selectedNft} />
             </Route>
             <Route exact path="/details">
-              <Details />
+              <Details cart={cart} setCart={setCart}/>
+            </Route>
+            <Route exact path="/cart">
+              <Cart cart={cart}/>
             </Route>
           </Switch>
         </div>

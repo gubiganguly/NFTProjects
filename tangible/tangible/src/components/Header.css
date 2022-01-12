@@ -39,6 +39,7 @@
 .headerItems {
     display: flex;
     color: #a1a5b0; 
+    align-items: center;
 }
 
 .headerItems > a {
@@ -86,12 +87,13 @@
 
  .loginButton {
      background: linear-gradient(to right, #59f9b7, #66feea);
-     padding: 15px  40px;
+     padding: 15px  35px;
      border-radius: 50px;
      color: black;
      border: none;
      text-decoration: none;
-     
+     font-size: 15px;
+     font-weight: 800;
  }
 
  .loginButton:hover {

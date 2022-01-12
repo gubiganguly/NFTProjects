@@ -4,12 +4,11 @@ import punkLogo from '../assets/header/cryptopunk-logo.png'
 import searchIcon from '../assets/header/search.png'
 import themeSwitchIcon from '../assets/header/theme-switch.png'
 import {Link} from 'react-router-dom'
+import {AiOutlineShoppingCart} from 'react-icons/ai'
+import{useState, useEffect} from 'react'; 
 
 
-
-const Header = () => {
-
-        
+const Header = ({ cart }) => {
 
     async function loginButton() {
         await window.ethereum.request({ method: 'eth_requestAccounts' })
@@ -53,7 +52,9 @@ const Header = () => {
             <div className='headerItems'>
 				<Link className="marketPlace" to="/">Marketplace</Link>
                 <Link className="drops" to="/">Drops</Link>
-                <Link className="about" to="/">About</Link>
+                <Link className="cart" to="/cart">
+                    <AiOutlineShoppingCart size={25}/>{cart.length}
+                </Link>
             </div>
 
             <div  className='headerActions'>

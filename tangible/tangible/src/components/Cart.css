@@ -1,0 +1,15 @@
+.cartTitle {
+    padding-top: 25px;
+    color: white;
+    font-weight: 700;
+    font-size: 55px;
+    border-bottom: 1px solid white;
+}
+.cartList {
+    color: white;
+    display: flex;
+}
+
+.cartList > div {
+    margin: 20px;
+}

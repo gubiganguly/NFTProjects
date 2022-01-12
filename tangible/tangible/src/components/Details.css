@@ -1,10 +1,11 @@
 .details {
+    padding-top: 60px;
     color: white;
     display: flex;
 }
 
 .productImageContainer  {
-    padding-top: 60px;
+    
     width: 600px;
     height: 600px;
     overflow: auto;
@@ -46,16 +47,16 @@
 
 .sizeContainer > div:hover {
     background-color: #66feea;
-    color: black;
     cursor: pointer;
 }
 
 
-.box {
+#box {
     border: white;
     display: flex;
     font-size: 20px;
 }
+
 
 .changeColorContainer {
     display: flex;
@@ -79,6 +80,7 @@
     outline: none;
     color: #eee;
     font-size: 16px;
+    
 }
 
 .colorButton {
@@ -93,12 +95,13 @@
     cursor: pointer;
 }
 
-.colorButton {
+.colorButton:hover {
     filter: brightness(110%);
 }
 
 
 .addToCart {
+    align-items: center;
     text-align: center;
     width: 100px;
     background: linear-gradient(to right, #59f9b7, #66feea);
